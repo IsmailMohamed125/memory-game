@@ -5,18 +5,53 @@ import "./App.css";
 
 function App() {
   const { characters } = useCharacters("one punch man");
+  const [isActive, setIsActive] = useState(false);
+  const [numCharacters, setNumCharacters] = useState("");
+  const [highscore, setHighscore] = useState(0);
+
+  function setMode(mode) {
+    mode === "Easy"
+      ? setNumCharacters(5)
+      : mode === "Medium"
+      ? setNumCharacters(10)
+      : mode === "Hard"
+      ? setNumCharacters(20)
+      : null;
+
+    setIsActive(true);
+  }
 
   return (
     <>
-      <div className="game">
-        <CharacterList
-          characters={characters}
-          numCharacters={numCharacters}
-          gameState={setIsActive}
-          highscore={highscore}
-          setHighscore={setHighscore}
-        />
-      </div>
+      {!isActive ? (
+        <div className="video-container">
+          <video autoPlay muted loop id="video-bg">
+            <source
+              src="src/assets/saitama-stupid-face-onepunch-man-moewalls-com.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+          <div className="content">
+            <div className="content-name">Memory Game</div>
+            <div className="buttons-container">
+              <Buttons setMode={setMode}>Easy</Buttons>
+              <Buttons setMode={setMode}>Medium</Buttons>
+              <Buttons setMode={setMode}>Hard</Buttons>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="game">
+          <CharacterList
+            characters={characters}
+            numCharacters={numCharacters}
+            gameState={setIsActive}
+            highscore={highscore}
+            setHighscore={setHighscore}
+          />
+        </div>
+      )}
     </>
   );
 }
@@ -66,7 +101,6 @@ function CharacterList({
   }
 
   function handlePlayAgain() {
-    // If character is clicked again, reset score and clickedCharacters
     setScore(0);
     setClickedCharacters([]);
     setIsActive(true);
@@ -77,7 +111,6 @@ function CharacterList({
   }
 
   useEffect(() => {
-    // Update highscore after the rendering is complete
     if (score > highscore) {
       setHighscore(score);
     }
@@ -87,12 +120,11 @@ function CharacterList({
     console.log(score, numCharacters);
     if (score === numCharacters) {
       setWin(true);
-      setIsActive(false); // Disable further clicks after winning
+      setIsActive(false);
     }
   }, [score, numCharacters]);
 
   useEffect(() => {
-    // Reset the game state when the game is restarted
     if (isActive) {
       setWin(false);
     }
@@ -158,5 +190,13 @@ function Character({ character, onClick }) {
       />
       <p className="character-name">{character.name}</p>
     </li>
+  );
+}
+
+function Buttons({ children, setMode }) {
+  return (
+    <button className="button" onClick={() => setMode(children)}>
+      {children}
+    </button>
   );
 }
