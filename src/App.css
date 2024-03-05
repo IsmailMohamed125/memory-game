@@ -1,0 +1,353 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Luckiest Guy";
+}
+
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#video-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.content {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+
+  z-index: 1; /* Ensure the content is above the video */
+}
+
+.content-name {
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  column-gap: 2rem;
+  /* justify-content: space-between; */
+}
+
+.button {
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  background-color: #fff;
+  border-radius: 8px;
+  color: #ffa500;
+  font-size: 20px;
+  padding: 14px 18px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.button:hover {
+  background-color: #ffa500; /* Change background color on hover */
+  color: #fff; /* Change text color on hover */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8); /* Change box shadow on hover */
+}
+
+.game {
+  background-image: url(src/assets/wallpaperflare.com_wallpaper.jpg);
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 2rem;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  color: white; /* Text color */
+  padding: 5px; /* Adjust padding as needed */
+  position: fixed; /* Fixed position to stay at the top */
+  width: 100%; /* Full width */
+  top: 0; /* Stick to the top */
+  z-index: 1000;
+}
+
+.logo {
+  fill: #fff;
+  height: 50px;
+  margin-top: 0.5rem;
+}
+
+.characters-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem;
+}
+
+.characters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.character-container {
+  padding: 0.7rem;
+  background-color: #3e2723;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.character-container:hover {
+  transform: scale(1.05) rotate(-3deg) translateY(-5px);
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.8);
+}
+
+.character-container:active {
+  transform: translateY(5px) rotate(10deg);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.character-image {
+  width: 11rem;
+  height: 15rem;
+  border-radius: 25px;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.character-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Adjust the z-index based on your needs */
+}
+
+.message-container {
+  background-image: url(src/assets/gameOver.jpg);
+  background-size: cover;
+  background-position: -150px center;
+  min-height: 75vh;
+  min-width: 70vw;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  position: relative;
+}
+
+.message-content {
+  position: absolute;
+  top: 10%;
+  right: 3%;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.message-result {
+  font-size: 3rem;
+}
+
+.action-buttons {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+/* Add additional styling as needed */
+
+/* Your existing styles... */
+
+/* Media Query for Tablets */
+@media only screen and (max-width: 1075px) {
+  .header {
+    font-size: 1.7rem; /* Decrease header font size for smaller screens */
+  }
+
+  .logo {
+    height: 40px; /* Adjust logo height for smaller screens */
+  }
+
+  .character-container {
+    padding: 0.6rem; /* Adjust character container padding for smaller screens */
+    margin-bottom: 0.7rem; /* Adjust margin */
+  }
+
+  .character-image {
+    width: 9rem; /* Adjust character image size for smaller screens */
+    height: 13rem;
+  }
+
+  .character-name {
+    font-size: 0.9rem; /* Adjust character name font size for smaller screens */
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .content {
+    bottom: 10%; /* Adjust positioning for smaller screens */
+    left: 5%;
+  }
+
+  .button {
+    font-size: 16px; /* Decrease button font size for smaller screens */
+    padding: 12px 16px; /* Adjust button padding */
+  }
+
+  .header {
+    font-size: 1.5rem; /* Decrease header font size for smaller screens */
+  }
+
+  .logo {
+    height: 30px; /* Adjust logo height for smaller screens */
+  }
+
+  .characters-container {
+    padding: 4rem;
+  }
+
+  .character-container {
+    padding: 0.5rem; /* Adjust character container padding for smaller screens */
+    margin-bottom: 0.5rem; /* Adjust margin */
+  }
+
+  .character-image {
+    width: 8rem; /* Adjust character image size for smaller screens */
+    height: 12rem;
+  }
+
+  .character-name {
+    font-size: 0.8rem; /* Adjust character name font size for smaller screens */
+  }
+
+  .overlay {
+    background: rgba(0, 0, 0, 0.7); /* Slightly darker overlay on tablets */
+  }
+
+  .message-container {
+    min-height: 60vh; /* Decreased minimum height for tablets */
+    min-width: 80vw; /* Decreased minimum width for tablets */
+    background-position: -200px center;
+  }
+
+  .message-content {
+    top: 5%; /* Adjusted positioning for tablets */
+    right: 5%;
+    font-size: 1rem; /* Decreased font size for tablets */
+  }
+
+  .message-result {
+    font-size: 2rem; /* Decreased font size for tablets */
+  }
+
+  .action-buttons {
+    bottom: 5%; /* Adjusted positioning for tablets */
+    right: 5%;
+  }
+}
+
+/* Media Query for Phones */
+@media only screen and (max-width: 519px) {
+  .content {
+    bottom: 5%; /* Further adjust positioning for smaller screens */
+    left: 2%;
+  }
+
+  .button {
+    font-size: 14px; /* Decrease button font size for even smaller screens */
+    padding: 10px 14px; /* Further adjust button padding */
+  }
+
+  .header {
+    font-size: 1.2rem; /* Decrease header font size for even smaller screens */
+  }
+
+  .characters-container {
+    padding: 5rem;
+  }
+
+  .logo {
+    height: 30px;
+    width: 80px; /* Further adjust logo height for even smaller screens */
+  }
+
+  .character-container {
+    padding: 0.4rem; /* Further adjust character container padding */
+    margin-bottom: 0.3rem; /* Further adjust margin */
+  }
+
+  .character-image {
+    width: 6rem; /* Further adjust character image size for even smaller screens */
+    height: 9rem;
+  }
+
+  .character-name {
+    font-size: 0.6rem; /* Further adjust character name font size for even smaller screens */
+  }
+
+  .overlay {
+    background: rgba(0, 0, 0, 0.8); /* Darker overlay on phones */
+  }
+
+  .message-container {
+    min-height: 50vh; /* Further decreased minimum height for phones */
+    min-width: 90vw; /* Further decreased minimum width for phones */
+    background-position: -150px center;
+  }
+
+  .message-content {
+    top: 60%; /* Further adjusted positioning for phones */
+    right: 2%;
+    font-size: 0.8rem; /* Decreased font size for phones */
+  }
+
+  .message-result {
+    font-size: 1.5rem; /* Decreased font size for phones */
+  }
+
+  .action-buttons {
+    bottom: 2%; /* Further adjusted positioning for phones */
+    right: 2%;
+  }
+}
