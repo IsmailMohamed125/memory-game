@@ -70,7 +70,7 @@ body {
 }
 
 .game {
-  background-image: url(public/wallpaperflare.com_wallpaper.jpg);
+  background-image: url(/wallpaperflare.com_wallpaper.jpg);
   background-position: center;
   background-size: cover;
   min-height: 100vh;
@@ -163,7 +163,7 @@ body {
 }
 
 .message-container {
-  background-image: url(public/gameOver.jpg);
+  background-image: url(/gameOver.jpg);
   background-size: cover;
   background-position: -150px center;
   min-height: 75vh;

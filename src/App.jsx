@@ -27,7 +27,7 @@ function App() {
         <div className="video-container">
           <video autoPlay muted loop id="video-bg">
             <source
-              src="public/saitama-stupid-face-onepunch-man-moewalls-com.mp4"
+              src="/saitama-stupid-face-onepunch-man-moewalls-com.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -134,11 +134,7 @@ function CharacterList({
     <>
       <div className="header">
         <div className="header-logo">
-          <img
-            src="public/One Punch Man.svg"
-            alt="One punch man"
-            className="logo"
-          />
+          <img src="/One Punch Man.svg" alt="One punch man" className="logo" />
         </div>
         <div className="header-current-score">Score: {score}</div>
         <div className="header-highscore">Highscore: {highscore}</div>
