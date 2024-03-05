@@ -1,8 +1,3 @@
-# React + Vite
+# Memory Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project was created to practice some more React Hooks. I utilised asynchronous JavaScript to make an api call in a useEffect hook. This hook was used in conjunction with a useState hook in a custom hook I created. This functionality made the code more readable and was later imported and used in another component.
